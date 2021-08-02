@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import 'tailwindcss/tailwind.css'
 
 const GlobalStyle = createGlobalStyle`
   body {

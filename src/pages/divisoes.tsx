@@ -1,15 +1,24 @@
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Divisoes } from '../interfaces/divisoes'
+import TabelaDivisoes from '../components/TabelaDivisoes'
+import { Divisao } from '../interfaces/divisoes'
 
-const painelDivisoes = ({ divisao }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <h1>Painel de Divisões</h1>
-)
+export interface DivisaoProps {
+  divisao: Divisao
+}
 
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPropsContext
-) => {
+function painelDivisoes ({ divisao }: InferGetStaticPropsType<typeof getStaticProps>) {
+  return (
+    <div>
+      <TabelaDivisoes/>
+    </div>
+  )
+}
+
+export const getStaticProps: GetStaticProps<DivisaoProps> = async (
+    context: GetStaticPropsContext
+  ) => {
   const res = await fetch('http://localhost/teste-api?base=divisoes')
-  const data: Divisoes[] = await res.json()
+  const data = await res.json()
 
   return {
     props: {
