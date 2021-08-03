@@ -5,12 +5,13 @@ import { Divisao } from '../interfaces/divisoes'
 
 export interface DivisaoProps {
   divisao: Divisao
+  date: string
 }
 
-function painelDivisoes ({ divisao }: InferGetStaticPropsType<typeof getStaticProps>) {
+function painelDivisoes ({ divisao, date }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <PageHeading title = "Atendimento das Divisões" data = "02/08/2021" hora = "13:55"/>
+      <PageHeading title = "Produtos em Divisão" data = { date }/>
       <TabelaDivisoes divisao = { divisao }/>
     </div>
   )
@@ -26,7 +27,9 @@ export const getStaticProps: GetStaticProps<DivisaoProps> = async (
   return {
     props: {
       divisao: data,
+      date: new Date().toLocaleString(),
     },
+    revalidate: 300
   }
 }
 
