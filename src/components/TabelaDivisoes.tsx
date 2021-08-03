@@ -67,34 +67,34 @@ export default function TabelaDivisoes( { divisao } ) {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {divisao.map((item: Divisao) => (
-                  <tr key={item.data_divisao}>
-                    <td className="px-4 py-2 w-10 whitespace-nowrap text-sm text-gray-500">{item.data_divisao}</td>
+                  <tr key={ item.data_divisao }>
+                    <td className="px-4 py-2 w-10 whitespace-nowrap text-sm text-gray-500">{ item.data_divisao }</td>
                     <td className="px-6 py-2 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">{item.cdgproduto}</div>
-                          <div className="text-sm text-gray-500">{item.produto}</div>
+                          <div className="text-sm font-medium text-gray-900">{ item.cdgproduto }</div>
+                          <div className="text-sm text-gray-500">{ item.produto }</div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-2 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{item.cdgcentrobi}</div>
-                      <div className="text-sm text-gray-500">{item.centro}</div>
+                      <div className="text-sm text-gray-900">{ item.cdgcentrobi }</div>
+                      <div className="text-sm text-gray-500">{ item.centro }</div>
                     </td>
-                    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-500">{item.uf}</td>
+                    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-500">{ item.uf }</td>
                     <td className="px-6 py-2 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{item.qtd_divisao}</div>
-                      <div className="text-sm text-gray-500" title="Ordem de Atendimento">{item.ordem_atendimento}</div>
+                      <div className="text-sm text-gray-900">{ item.qtd_divisao.toLocaleString() }</div>
+                      <div className="text-sm text-gray-500" title="Ordem de Atendimento">{ item.ordem_atendimento }</div>
                     </td>
-                    <td className="px-6 py-2 whitespace-normal text-sm text-gray-500">{item.pedidos}</td>
+                    <td className="px-6 py-2 whitespace-normal text-sm text-gray-500">{ item.pedidos }</td>
                     <td className="px-6 py-2 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{item.qtd_a_fornecer}</div>
-                      <div className="text-sm text-gray-500">{item.perc_pedidos}</div>
+                      <div className="text-sm text-gray-900">{ item.qtd_a_fornecer.toLocaleString() }</div>
+                      <div className="text-sm text-gray-500">{ (item.perc_pedidos * 100).toLocaleString(undefined, { maximumFractionDigits: 1}) }%</div>
                     </td>
-                    <td className="px-6 py-2 whitespace-normal text-sm text-gray-500">{item.remessas}</td>
+                    <td className="px-6 py-2 whitespace-normal text-sm text-gray-500">{ item.remessas }</td>
                     <td className="px-6 py-2 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{item.qtd_remessa}</div>
-                      <div className="text-sm text-gray-500">{item.perc_remessas}</div>
+                      <div className="text-sm text-gray-900">{ item.qtd_remessa.toLocaleString() }</div>
+                      <div className={`text-sm text-gray-500 ${ (item.perc_remessas > 1) ? 'bg-red-300' : 'bg-green-300' }`}>{ (item.perc_remessas * 100).toLocaleString(undefined, { maximumFractionDigits: 1}) }%</div>
                     </td>
                   </tr>
                 ))}
