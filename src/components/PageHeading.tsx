@@ -8,7 +8,7 @@ type Props = {
   hora?: string
 }
 
-export default function PageHeading({ title = 'This is the default title', data, hora }: Props) {
+export default function PageHeading({ title = 'This is the default title', data }: Props) {
   return (
     <div className="lg:flex lg:items-center lg:justify-between">
       <div className="flex-1 min-w-0">
@@ -16,7 +16,7 @@ export default function PageHeading({ title = 'This is the default title', data,
         <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
           <div className="mt-2 flex items-center text-sm text-gray-500">
             <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-            Atualizado em { data } às { hora }
+            Atualizado em { data }
           </div>
         </div>
       </div>
