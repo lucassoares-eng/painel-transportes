@@ -30,7 +30,9 @@ class MyDocument extends Document {
   render() {
     return(
       <Html>
-        <Head></Head>
+        <Head>
+          <meta http-equiv="refresh" content="300"/>
+        </Head>
 				<body>
 					<Main />
 					<NextScript />
